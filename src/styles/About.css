@@ -1,0 +1,24 @@
+.about-me {
+    padding: 40px;
+    background-color: rgba(248, 249, 250, 0.1);
+    color: #333;
+    max-width: 800px;
+    margin: 0 auto;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.about-me h2 {
+    font-size: 28px;
+    color: #7772F1;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.about-me p {
+    font-size: 18px;
+    line-height: 1.8;
+    margin-bottom: 20px;
+    color: white;
+    text-align: justify;
+}

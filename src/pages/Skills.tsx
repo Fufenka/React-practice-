@@ -1,4 +1,6 @@
-export default function Skills (){
+import '../styles/Skills.css'
+
+export default function Skills() {
     const skills = [
         'JavaScript (JS)',
         'TypeScript (TS)',
@@ -9,7 +11,7 @@ export default function Skills (){
         'Django REST Framework (DRF)',
         'SQLite',
         '1C',
-        'c++'
+        'C++'
     ];
 
     return (
@@ -25,4 +27,4 @@ export default function Skills (){
             </ul>
         </section>
     );
-};
+}

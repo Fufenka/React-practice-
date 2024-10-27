@@ -1,50 +1,30 @@
-# React + TypeScript + Vite
+# Лабораторные работы по фронтэнду
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Этот репозиторий содержит мои лабораторные работы по курсу "Фронтэнд". В каждой ветке размещены соответствующие лабораторные задания.
 
-Currently, two official plugins are available:
+## Структура репозитория
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **main**: Основная ветка, где содержится общая информация и документация.
+- **lab1**: Ветка, содержащая лабораторную работу 1 — "Создание базовой структуры сайта-портфолио".
 
-## Expanding the ESLint configuration
+## Используемые технологии
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- **React**: Библиотека для создания пользовательских интерфейсов.
+- **Vite**: Инструмент сборки для ускоренной разработки.
+- **TypeScript**: Язык программирования, основанный на JavaScript, добавляющий статическую типизацию.
 
-- Configure the top-level `parserOptions` property like this:
+## Как использовать
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
-
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
-
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+1. Клонируйте репозиторий:
+   ```bash
+   git clone https://github.com/Fufenka/React-practice-
+   ```
+2. ```bash
+   git checkout lab1 # для лабораторной работы 1
+   ```
+3. ```bash
+   npm install
+   npm run dev
+   ```
+   
+   

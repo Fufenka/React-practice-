@@ -1,6 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 
 interface Project {
+    id: string;
     title: string;
     description: string;
     link: string;

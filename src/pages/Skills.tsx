@@ -3,16 +3,16 @@ import '../styles/Skills.css';
 
 export default function Skills() {
     const skills = [
-        { name: 'JavaScript (JS)', description: 'Основной язык для разработки веб-приложений, поддерживающий динамическое поведение.' },
-        { name: 'TypeScript (TS)', description: 'Расширение JavaScript с поддержкой строгой типизации, которое улучшает масштабируемость проектов.' },
-        { name: 'React', description: 'Библиотека для создания пользовательских интерфейсов, основанная на компонентах.' },
-        { name: 'HTML', description: 'Язык разметки для создания структуры веб-страниц.' },
-        { name: 'CSS', description: 'Язык стилей, используемый для оформления веб-страниц.' },
-        { name: 'Django', description: 'Фреймворк для создания веб-приложений на Python с акцентом на скорость разработки.' },
-        { name: 'Django REST Framework (DRF)', description: 'Дополнение к Django для создания RESTful API.' },
-        { name: 'SQLite', description: 'Лёгкая реляционная база данных, встроенная в большинство языков программирования.' },
-        { name: '1C', description: 'Платформа для автоматизации бизнес-процессов и учета в компаниях.' },
-        { name: 'C++', description: 'Язык программирования общего назначения с высокой производительностью.' },
+        { id : 1, name: 'JavaScript (JS)', description: 'Основной язык для разработки веб-приложений, поддерживающий динамическое поведение.' },
+        { id : 2, name: 'TypeScript (TS)', description: 'Расширение JavaScript с поддержкой строгой типизации, которое улучшает масштабируемость проектов.' },
+        { id : 3, name: 'React', description: 'Библиотека для создания пользовательских интерфейсов, основанная на компонентах.' },
+        { id : 4, name: 'HTML', description: 'Язык разметки для создания структуры веб-страниц.' },
+        { id : 5, name: 'CSS', description: 'Язык стилей, используемый для оформления веб-страниц.' },
+        { id : 6, name: 'Django', description: 'Фреймворк для создания веб-приложений на Python с акцентом на скорость разработки.' },
+        { id : 7, name: 'Django REST Framework (DRF)', description: 'Дополнение к Django для создания RESTful API.' },
+        { id : 8, name: 'SQLite', description: 'Лёгкая реляционная база данных, встроенная в большинство языков программирования.' },
+        { id : 9, name: '1C', description: 'Платформа для автоматизации бизнес-процессов и учета в компаниях.' },
+        { id : 10, name: 'C++', description: 'Язык программирования общего назначения с высокой производительностью.' },
     ];
 
     const [selectedSkill, setSelectedSkill] = useState(null);
@@ -26,9 +26,9 @@ export default function Skills() {
             <h2>My Skills</h2>
             <p>Здесь перечислены основные технологии и инструменты, с которыми я работаю:</p>
             <ul className="skills-list">
-                {skills.map((skill, index) => (
+                {skills.map((skill) => (
                     <li
-                        key={index}
+                        key={skill.id}
                         className="skill-item"
                         onClick={() => setSelectedSkill(skill)}
                     >

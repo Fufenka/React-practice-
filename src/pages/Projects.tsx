@@ -1,56 +1,61 @@
-import React, { useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { RootState } from '../store';
 import { addProject } from '../store/projectsSlice';
-import '../styles/Projects.css'
+import { useForm } from 'react-hook-form';
+import { yupResolver } from '@hookform/resolvers/yup';
+import * as yup from 'yup';
+import '../styles/Projects.css';
 
-export default function Projects(): JSX.Element {
+interface Project {
+    id: string;
+    title: string;
+    description: string;
+    link: string;
+}
+
+const schema = yup.object().shape({
+    title: yup.string().trim().required('Введите название проекта'),
+    description: yup.string().trim().required('Введите описание проекта'),
+    link: yup.string().url('Введите корректную ссылку').required('Введите ссылку на проект'),
+});
+
+export default function Projects() {
     const projects = useSelector((state: RootState) => state.projects);
     const dispatch = useDispatch();
 
-    const [title, setTitle] = useState('');
-    const [description, setDescription] = useState('');
-    const [link, setLink] = useState('');
+    const {
+        register,
+        handleSubmit,
+        reset,
+        formState: { errors },
+    } = useForm({
+        resolver: yupResolver(schema),
+    });
 
-    const handleSubmit = (e: React.FormEvent) => {
-        e.preventDefault();
-        dispatch(addProject({ title, description, link }));
-        setTitle('');
-        setDescription('');
-        setLink('');
+    const onSubmit = (data: { title: string; description: string; link: string }) => {
+        dispatch(addProject({ id: Date.now().toString(), ...data }));
+        reset();
     };
 
     return (
         <section className="projects-section">
             <h2>My Projects</h2>
-            <form onSubmit={handleSubmit} className="add-project-form">
-                <input
-                    type="text"
-                    placeholder="Название проекта"
-                    value={title}
-                    onChange={(e) => setTitle(e.target.value)}
-                    required
-                />
-                <input
-                    type="text"
-                    placeholder="Описание проекта"
-                    value={description}
-                    onChange={(e) => setDescription(e.target.value)}
-                    required
-                />
-                <input
-                    type="url"
-                    placeholder="Ссылка на проект"
-                    value={link}
-                    onChange={(e) => setLink(e.target.value)}
-                    required
-                />
+            <form onSubmit={handleSubmit(onSubmit)} className="add-project-form">
+                <input {...register('title')} type="text" placeholder="Название проекта" />
+                {errors.title && <span className="error">{errors.title.message}</span>}
+
+                <input {...register('description')} type="text" placeholder="Описание проекта" />
+                {errors.description && <span className="error">{errors.description.message}</span>}
+
+                <input {...register('link')} type="url" placeholder="Ссылка на проект" />
+                {errors.link && <span className="error">{errors.link.message}</span>}
+
                 <button type="submit">Добавить проект</button>
             </form>
 
             <ul className="projects-list">
-                {projects.map((project, index) => (
-                    <li key={index} className="project-item">
+                {projects.map((project: Project) => (
+                    <li key={project.id} className="project-item">
                         <h3 className="project-title">{project.title}</h3>
                         <p className="project-description">{project.description}</p>
                         <a

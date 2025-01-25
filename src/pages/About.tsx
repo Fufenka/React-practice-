@@ -1,3 +1,5 @@
+import "../styles/About.css"
+
 export default function About() {
     return (
         <section id="about-me" className="about-me">
